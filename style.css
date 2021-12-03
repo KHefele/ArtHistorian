@@ -7,11 +7,11 @@
 
 @font-face {
     font-family: 'Scriptina';
-    src: url('/font-style/Scriptina.eot'); /* IE9 Compat Modes */
-    src: url('/font-style/Scriptina.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('/font-style/Scriptina.woff') format('woff'), /* Modern Browsers */
-         url('/font-style/Scriptina.ttf')  format('truetype'), /* Safari, Android, iOS */
-         url('/font-style/Scriptina.svg#svgFontName') format('svg'); /* Legacy iOS */
+    src: url('font-style/Scriptina.eot'); /* IE9 Compat Modes */
+    src: url('font-style/Scriptina.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('font-style/Scriptina.woff') format('woff'), /* Modern Browsers */
+         url('font-style/Scriptina.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('font-style/Scriptina.svg#svgFontName') format('svg'); /* Legacy iOS */
   }
 
 body{

@@ -34,7 +34,7 @@ $(document).ready(function() {
     spielfeld = spielbrett.getContext('2d');
 
     var grundriss = new Image();
-    grundriss.src = "/images/grundrissGrey.png";
+    grundriss.src = "images/grundrissGrey.png";
 
     var leinwandX = $("#leinwand").offset().left;
     var leinwandY = $("#leinwand").offset().top;
@@ -52,13 +52,13 @@ $(document).ready(function() {
 
     //Figuren
     var spielfigur = new Image();
-    spielfigur.src ='/images/dieb.png';
+    spielfigur.src ='images/dieb.png';
 
     var zielfeld = new Image();
-    zielfeld.src='/images/canvas.png';
+    zielfeld.src='images/canvas.png';
 
     var police = new Image();
-    police.src = '/images/police-hat.png';
+    police.src = 'images/police-hat.png';
 
 
 
@@ -190,12 +190,12 @@ $(document).ready(function() {
     $("#stop").click(function() {
         if (play){
             clearInterval(takt);
-            $("#stop").attr('src', "/icons/wiedergabetaste.png");
+            $("#stop").attr('src', "icons/wiedergabetaste.png");
             $("#stop").css("background-color", "var(--color1)");
             play = false;
         } else {
             takt = window.setInterval(taktung, 100);
-            $("#stop").attr('src', "/icons/pause-button.png");
+            $("#stop").attr('src', "icons/pause-button.png");
             $("#stop").css("background-color", "");
             play = true;
         }
