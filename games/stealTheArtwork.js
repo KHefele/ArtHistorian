@@ -190,12 +190,12 @@ $(document).ready(function() {
     $("#stop").click(function() {
         if (play){
             clearInterval(takt);
-            $("#stop").attr('src', "icons/wiedergabetaste.png");
+            $("#stop").attr('src', "../icons/wiedergabetaste.png");
             $("#stop").css("background-color", "var(--color1)");
             play = false;
         } else {
             takt = window.setInterval(taktung, 100);
-            $("#stop").attr('src', "icons/pause-button.png");
+            $("#stop").attr('src', "../icons/pause-button.png");
             $("#stop").css("background-color", "");
             play = true;
         }
