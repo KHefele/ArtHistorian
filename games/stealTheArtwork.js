@@ -34,7 +34,7 @@ $(document).ready(function() {
     spielfeld = spielbrett.getContext('2d');
 
     var grundriss = new Image();
-    grundriss.src = "images/grundrissGrey.png";
+    grundriss.src = "../images/grundrissGrey.png";
 
     var leinwandX = $("#leinwand").offset().left;
     var leinwandY = $("#leinwand").offset().top;
@@ -52,13 +52,13 @@ $(document).ready(function() {
 
     //Figuren
     var spielfigur = new Image();
-    spielfigur.src ='images/dieb.png';
+    spielfigur.src ='../images/dieb.png';
 
     var zielfeld = new Image();
-    zielfeld.src='images/canvas.png';
+    zielfeld.src='../images/canvas.png';
 
     var police = new Image();
-    police.src = 'images/police-hat.png';
+    police.src = '../images/police-hat.png';
 
 
 
