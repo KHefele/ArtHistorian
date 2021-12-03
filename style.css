@@ -1,0 +1,74 @@
+:root {
+    --common-font: 'Crimson Text', serif;
+    --color1: #FFB901;
+    --color2: #FFCE4B;
+    --color3: #FFF1CC;
+}
+
+@font-face {
+    font-family: 'Scriptina';
+    src: url('/font-style/Scriptina.eot'); /* IE9 Compat Modes */
+    src: url('/font-style/Scriptina.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/font-style/Scriptina.woff') format('woff'), /* Modern Browsers */
+         url('/font-style/Scriptina.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('/font-style/Scriptina.svg#svgFontName') format('svg'); /* Legacy iOS */
+  }
+
+body{
+    background-color: var(--color2);
+    color: var(--color3);
+}
+
+a {
+    font-family: var(--common-font);
+    text-decoration: none;
+    color: var(--color3);
+}
+
+
+.getBigger {
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+.getBigger:hover {
+    transform: scale(1.2);
+}
+
+#gamesContainer {
+    position: fixed;
+    transform: translate(-50%, -40%);
+    width: 65%;
+    left: 50%;
+    top: 50%;
+}
+
+.gameLink {
+    float:left;
+    margin: 3%;
+    text-align: center;
+    background-color: rgba(255, 183, 1, 0.5);
+    padding-top: 5%;
+    border-radius: 2%;
+}
+
+
+#infoBackground{
+    display: none;
+    position: fixed;
+    top:0%;
+    left:0%;
+    background-color: rgba(0, 0, 0, 0.349);
+    width: 100%;
+    height: 100%;
+}
+#info{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left:50%;
+    top:50%;
+    width: 50%;
+    height: 50%;
+    background-color: var(--color1);
+    padding: 5%;
+    border-radius: 1%;
+}

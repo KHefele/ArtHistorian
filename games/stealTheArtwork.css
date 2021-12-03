@@ -1,0 +1,149 @@
+:root {
+    --common-font: 'Crimson Text', serif;
+    --color1: #FFB901;
+    --color2: #FFCE4B;
+    --color3: #FFF1CC;
+}
+
+@font-face {
+    font-family: 'Scriptina';
+    src: url('/font-style/Scriptina.eot'); /* IE9 Compat Modes */
+    src: url('/font-style/Scriptina.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/font-style/Scriptina.woff') format('woff'), /* Modern Browsers */
+         url('/font-style/Scriptina.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('/font-style/Scriptina.svg#svgFontName') format('svg'); /* Legacy iOS */
+  }
+
+
+
+
+body {
+    margin: 0;
+	background-color: var(--color2);
+	font-family: monospace;
+	/* font-size: 1.01rem; */
+}
+p{
+	text-align: left;
+}
+
+#leinwand {
+    background-color: whitesmoke;
+	border: 10px solid white;
+}
+
+#gameContainer {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+#name {
+	font-family: Scriptina;
+	font-size: 300%;
+	color: var(--color3);
+	margin: 0%;
+}
+
+#spielbereich {
+	position: relative;
+	width: 600px;
+}
+
+#spielendeanzeige {
+	text-align: center;
+	display: none;
+	position: absolute;
+	top: 60%;
+	left: 50%;	
+	border: 4px solid var(--color1);
+	transform: translate(-50%,-50%);
+	border-radius: 1.5%;
+	background-color: rgba(255, 183, 1, 0.87);
+	width: 60%;
+	height: 40%; 
+	
+}
+#gameover {
+	text-align: center;
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;	
+	border: 4px solid var(--color1);
+	transform: translate(-50%,-50%);
+	border-radius: 1.5%;
+	background-color: rgba(255, 183, 1, 0.87);
+	width: 60%;
+	height: 30%; 
+}
+
+#anzeigen {
+	position: absolute;
+	padding: 3%;
+	font-size: 1.5rem;
+	color: var(--color3);
+}
+
+
+
+button{
+	background-color: var(--color3);
+	color:var(--color1);
+	border: none;
+	font-family: monospace;
+	padding: 2%;
+	cursor: pointer;
+	border-radius: 3%;
+}
+button:hover{
+	background-color: var(--color2);
+	color:var(--color3);
+}
+#museumsinfo {
+	position: absolute;
+	color:white;
+	left: 65%;
+	padding: 0% 10%;
+	top: 30%;
+}
+
+#auftrag {
+	position: absolute;
+	color:white;
+	right: 65%;
+	padding: 0% 10%;
+	top: 30%;
+}
+summary{
+	cursor: pointer;
+	padding: 2%;
+}
+summary:hover{
+	border:1px solid rgba(255, 255, 255, 0.5);
+}
+a{
+	color: white;
+	text-decoration: none;
+}
+
+
+
+#spielstop{
+	position: absolute;
+	padding: 3%;
+	right: 0%;
+	cursor: pointer;
+}
+/* #start {
+	background-color: var(--color1);
+} */
+#start, #stop {
+	padding: 20%;
+	border-radius: 5%;
+	border:1px solid #fff1cca1;;
+}
+#stop:hover, #start:hover{
+	background-color: var(--color1);
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Steal The Artwork</title>
+    <meta http-equiv="cache-control" content="no-cache">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="stealTheArtwork.js"></script>
+    <link href="stealTheArtwork.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="auftrag">
+        <h1>AUFTRAG</h1>
+        <p>
+            Sammle mindestens 5 Kunstwerke.
+            <br>
+            <br>
+            <b>Standort:</b> 
+            Sie befindet sich im 1.OG im WALLRAF-RICHARTZ-MUSEUM (Köln)
+            <br>
+            <br>
+            <b>Schwierigkeitsstufe:</b> 
+            schwierig
+        </p>
+    </div>
+    <div id="museumsinfo">
+        <h1>WALLRAF-RICHARTZ-MUSEUM</h1>
+        <p>
+            Das Museum besitzt eine der wichtigsten Sammlungen mittelalterlicher Malerei weltweit. 
+            Stefan Lochners populäre „Muttergottes in der Rosenlaube“ ist ihr Höhepunkt. 
+            Weitere Highlights sind die Malerei des Barock mit Gemälden von Rubens, Rembrandt, 
+            Murillo bis Boucher, die deutsche Romantik sowie der französische Realismus und Impressionismus.
+        </p>
+        <br>
+        <details>
+            <summary>Geschichte</summary>
+            <p>...</p>
+        </details>
+        <details>
+            <summary>Sammlungshighlights</summary>
+            <p>...</p>
+        </details>
+        <details>
+            <summary>Website</summary>
+            <p><a href="https://www.wallraf.museum/">https://www.wallraf.museum/</a></p>
+        </details>
+    </div>
+    <div id="gameContainer">
+        <h1 id="name">Master Thief</h1>
+        <canvas id="leinwand" width="600" height="480"></canvas>
+        
+        <div id="anzeigen">
+            <img src="/icons/point.png" width="30px"><div style="display: inline-block;" id="punktestand">&nbsp; Punkte: 0 </div>&emsp;
+            <img src="/icons/stopwatch.png" width="30px" ><div style="display: inline-block;font-family: monospace;" id="spielzeit">&nbsp; Spielzeit: 0</div>
+        </div>
+
+        <div id="spielstop">
+            <img id="stop" src="/icons/pause-button.png" width="25px">
+        </div>
+        
+        <div id="spielendeanzeige">
+            <br>
+            <h1>Zeit abgelaufen</h1>
+            <img src="/images/queen.png" width="25%" style="margin: 0% 10%; float:left">
+            <p id="endpunktestand">Punktestand: </p>
+            <p>Leider hast du die Anzahl von 5 Kunstwerken nicht erreicht. Versuche es doch nochmal: </p>
+            <br>
+            <br>
+            <a href="javascript:location.reload()"><button>Neustart</button></a>
+        </div>
+        <div id="gameover">
+            <h1>Erwischt</h1>
+            <img src="/images/alarm.png" width="25%" style="margin: 0% 10%; float:left" >
+            <p>Wie traurig - verloren.<br>Jetzt gibt es leider keine Punkte. Aber versuch's doch nochmal: </p>
+            <a href="javascript:location.reload()"><button>Neustart</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

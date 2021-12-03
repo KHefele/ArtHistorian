@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Scriptina';
+    src: url('Scriptina.eot');
+    src: url('Scriptina.eot?#iefix') format('embedded-opentype'),
+        url('Scriptina.woff2') format('woff2'),
+        url('Scriptina.woff') format('woff'),
+        url('Scriptina.ttf') format('truetype'),
+        url('Scriptina.svg#Scriptina') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
