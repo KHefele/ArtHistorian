@@ -27,6 +27,13 @@ p{
 	text-align: left;
 }
 
+hr {
+	height:2px;
+	border-width:0;
+	color:var(--color3);
+	background-color:var(--color3);
+}
+
 #leinwand {
     background-color: whitesmoke;
 	border: 10px solid white;
@@ -84,6 +91,7 @@ p{
 	padding: 3%;
 	font-size: 1.5rem;
 	color: var(--color3);
+	float:left;
 }
 
 
@@ -106,15 +114,15 @@ button:hover{
 	color:white;
 	left: 65%;
 	padding: 0% 10%;
-	top: 30%;
+	top: 20%;
 }
 
 #auftrag {
 	position: absolute;
 	color:white;
-	right: 65%;
+	right: 70%;
 	padding: 0% 10%;
-	top: 30%;
+	top: 20%;
 }
 summary{
 	cursor: pointer;
@@ -132,6 +140,7 @@ a{
 
 #spielstop{
 	position: absolute;
+	float: right;
 	padding: 3%;
 	right: 0%;
 	cursor: pointer;
@@ -139,11 +148,11 @@ a{
 /* #start {
 	background-color: var(--color1);
 } */
-#start, #stop {
-	padding: 20%;
+#stop {
+	padding: 10%;
 	border-radius: 5%;
 	border:1px solid #fff1cca1;;
 }
-#stop:hover, #start:hover{
+#stop:hover {
 	background-color: var(--color1);
 }

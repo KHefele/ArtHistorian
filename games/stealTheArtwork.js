@@ -40,14 +40,14 @@ $(document).ready(function() {
     var leinwandY = $("#leinwand").offset().top;
     console.log("X: " + leinwandX + "Y: " + leinwandY);
 
-    var unsichtbareLeinwand = document.createElement('canvas');
-    unsichtbareLeinwand.style.position = "absolute";
-    unsichtbareLeinwand.style.left = (leinwandX + 10) + "px"; //10 wg. Border
-    unsichtbareLeinwand.style.top = (leinwandY) + "px";
-    var unsichtbarerContext = unsichtbareLeinwand.getContext('2d');
+    // var unsichtbareLeinwand = document.createElement('canvas');
+    // unsichtbareLeinwand.style.position = "absolute";
+    // unsichtbareLeinwand.style.left = (leinwandX + 10) + "px"; //10 wg. Border
+    // unsichtbareLeinwand.style.top = (leinwandY) + "px";
+    // var unsichtbarerContext = unsichtbareLeinwand.getContext('2d');
 
-    unsichtbarerContext.drawImage(grundriss, 0, 0);
-    document.body.appendChild(unsichtbareLeinwand);
+    // unsichtbarerContext.drawImage(grundriss, 0, 0);
+    // document.body.appendChild(unsichtbareLeinwand);
     //return unsichtbarerContext.getImageData(x, y, 1, 1).data;
 
     //Figuren
@@ -78,14 +78,14 @@ $(document).ready(function() {
 			}
             zielx = Math.floor(Math.random()*28)*20+20;
             siegpunkte++;
-            $("#punktestand").html("&nbsp; Punkte: " + siegpunkte)
+            $("#punktestand").html("&nbsp; Score: " + siegpunkte)
 		}
 	}
     
     //Spielende
     function spielende() {
 		clearInterval(takt);
-        $('#endpunktestand').text('Punktestand: ' + siegpunkte);
+        $('#endpunktestand').text('Score: ' + siegpunkte);
         $('#spielendeanzeige:nth-child(0)').css( "background-color: green" );
         var sieg = (siegpunkte >= 5); 
         if (sieg){
@@ -144,7 +144,7 @@ $(document).ready(function() {
 
         var aktuellezeit = new Date();
         restzeit = spielzeit - Math.floor((aktuellezeit.getTime()-startzeit.getTime()) / 1000);
-        $('#spielzeit').html('&nbsp; Spielzeit: ' + restzeit);
+        $('#spielzeit').html('&nbsp; Remaining time: ' + restzeit);
         if (restzeit <= 0) {
             spielende();
         }
@@ -152,31 +152,36 @@ $(document).ready(function() {
 
 	$(document).bind('keydown', function (evt) {
 		console.log(evt.keyCode);
+
 		switch (evt.keyCode) {
-			// Pfeiltaste nach unten
-			case 40:
+			// go down
+			case 40: //arrow
+            case 83: //S
                 y += bewegung;    
                 if (y >= leinwandheight-20){
                     y = leinwandheight-20;
                 } 
                 kollisionspruefungWand();
 				return false;
-            // Pfeiltaste nach oben
-            case 38:
+            // go up
+            case 38: //arrow
+            case 87: //W
                 y -= bewegung;
                 if (y <= 0){
                     y = 0;
                 } 
                 return false;
-            // Pfeiltaste nach links
-            case 37:
+            // go left
+            case 37: //arrow
+            case 65: //A
                 x -= bewegung;
                 if (x <= 0){
                     x = 0;
                 } 
                 return false;
             //Pfeiltaste nach rechts
-            case 39:
+            case 39: //arrow
+            case 68: //D
                 x += bewegung;
                 if (x >= leinwandwidth-20){
                     x = leinwandwidth-20;

@@ -47,8 +47,9 @@ a {
     margin: 3%;
     text-align: center;
     background-color: rgba(255, 183, 1, 0.5);
-    padding-top: 5%;
+    padding: 5% 2%;
     border-radius: 2%;
+    width: 20%;
 }
 
 

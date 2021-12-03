@@ -11,35 +11,42 @@
 </head>
 
 <body>
+
     <div id="auftrag">
-        <h1>AUFTRAG</h1>
+        <h1>MISSION</h1>
         <p>
-            Sammle mindestens 5 Kunstwerke.
+            Collect at least 5 artworks.
             <br>
             <br>
-            <b>Standort:</b> 
-            Sie befindet sich im 1.OG im WALLRAF-RICHARTZ-MUSEUM (Köln)
+            <b>Location:</b> 
+            1st floor in the WALLRAF-RICHARTZ MUSEUM (Cologne).
             <br>
             <br>
-            <b>Schwierigkeitsstufe:</b> 
-            schwierig
+            <b>Difficulty level:</b> 
+            difficult
         </p>
+        <br>
+        <hr>
+        <br>
+        <h1>CONTROL</h1>
+        Use<br>
+        <img src="../icons/arrows.png" width="80px"><br>
+        or<br>
+        <img src="../icons/control.png" width="80px"><br>
     </div>
+
     <div id="museumsinfo">
         <h1>WALLRAF-RICHARTZ-MUSEUM</h1>
         <p>
-            Das Museum besitzt eine der wichtigsten Sammlungen mittelalterlicher Malerei weltweit. 
-            Stefan Lochners populäre „Muttergottes in der Rosenlaube“ ist ihr Höhepunkt. 
-            Weitere Highlights sind die Malerei des Barock mit Gemälden von Rubens, Rembrandt, 
-            Murillo bis Boucher, die deutsche Romantik sowie der französische Realismus und Impressionismus.
+            The museum has one of the world’s leading collections of mediaeval painting, with Stefan Lochner’s “Madonna of the Rose Bower” as its greatest attraction. Other highlights include works by the Baroque masters, ranging from Rubens and Rembrandt to Murillo and Boucher, the German Romantics, French Realism, and Impressionism.
         </p>
         <br>
         <details>
-            <summary>Geschichte</summary>
+            <summary>History</summary>
             <p>...</p>
         </details>
         <details>
-            <summary>Sammlungshighlights</summary>
+            <summary>Collection highlights</summary>
             <p>...</p>
         </details>
         <details>
@@ -47,13 +54,14 @@
             <p><a href="https://www.wallraf.museum/">https://www.wallraf.museum/</a></p>
         </details>
     </div>
+
     <div id="gameContainer">
         <h1 id="name">Master Thief</h1>
         <canvas id="leinwand" width="600" height="480"></canvas>
         
         <div id="anzeigen">
-            <img src="../icons/point.png" width="30px"><div style="display: inline-block;" id="punktestand">&nbsp; Punkte: 0 </div>&emsp;
-            <img src="../icons/stopwatch.png" width="30px" ><div style="display: inline-block;font-family: monospace;" id="spielzeit">&nbsp; Spielzeit: 0</div>
+            <img src="../icons/point.png" width="30px"><div style="display: inline-block;" id="punktestand">&nbsp; Score: 0 </div>&emsp;
+            <img src="../icons/stopwatch.png" width="30px" ><div style="display: inline-block;font-family: monospace;" id="spielzeit">&nbsp; Remaining time: 0</div>
         </div>
 
         <div id="spielstop">
@@ -62,19 +70,19 @@
         
         <div id="spielendeanzeige">
             <br>
-            <h1>Zeit abgelaufen</h1>
+            <h1>Time expired</h1>
             <img src="../images/queen.png" width="25%" style="margin: 0% 10%; float:left">
-            <p id="endpunktestand">Punktestand: </p>
-            <p>Leider hast du die Anzahl von 5 Kunstwerken nicht erreicht. Versuche es doch nochmal: </p>
+            <p id="endpunktestand">Score: </p>
+            <p>Mission failed. Unfortunately, you did not reach the number of 5 artworks. Why don't you try again? </p>
             <br>
             <br>
-            <a href="javascript:location.reload()"><button>Neustart</button></a>
+            <a href="javascript:location.reload()"><button>Restart</button></a>
         </div>
         <div id="gameover">
-            <h1>Erwischt</h1>
+            <h1>Caught!</h1>
             <img src="../images/alarm.png" width="25%" style="margin: 0% 10%; float:left" >
-            <p>Wie traurig - verloren.<br>Jetzt gibt es leider keine Punkte. Aber versuch's doch nochmal: </p>
-            <a href="javascript:location.reload()"><button>Neustart</button></a>
+            <p>The paintings were taken from you and so, unfortunately, there are no score points. But why don't you try again?</p>
+            <a href="javascript:location.reload()"><button>Restart</button></a>
         </div>
     </div>
 </body>
