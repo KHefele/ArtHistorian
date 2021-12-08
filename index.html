@@ -2,8 +2,10 @@
 <html lang="de">
 
 <head>
-    <meta charset="UTF-8">
     <title>The Art Historian Games</title>
+    <meta name="author" content="Katharina Hefele">
+
+    <meta charset="UTF-8">
     <meta http-equiv="cache-control" content="no-cache">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="script.js"></script>
@@ -14,6 +16,40 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/artHistorian.png">
+
+    <!-- Site Name, Title, and Description to be displayed -->
+    <meta property="og:image:secure_url" itemprop="image"
+        content="https://khefele.github.io/ArtHistorian/images/artHistorian.png" />
+    <meta property="og:image" itemprop="image" content="https://khefele.github.io/ArtHistorian/images/artHistorian.png" />
+    <meta property="og:image:url" content="https://khefele.github.io/ArtHistorian/images/artHistorian.png" />
+    <meta property="og:site_name" content="The Art Historian Games">
+    <meta property="og:title" content="Small games for people interested in art history" />
+    <meta property="og:description"
+        content="Private project designed for short breaks with playful entertainment. Made by Katharina Hefele." />
+    <meta property="og:image:alt" content="Symbol of art history, Mona Lisa and a magnifying glass" />
+    <meta property="og:locale" content="en_EN">
+    <meta property="og:type" content="website" />
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="437">
+    <meta property="og:image:height" content="405">
+    <meta property="og:url" content="https://khefele.github.io/ArtHistorian/" />
+
+    <!-- Twitter -->
+    <meta name="twitter:description"
+        content="Private project designed for short breaks with playful entertainment. Made by Katharina Hefele." />
+    <meta name="twitter:image" content="https://khefele.github.io/ArtHistorian/" />
+    <meta name="twitter:title" content="The Art Historian Games" />
+
+
+    <meta name="keywords" content="Kunstgeschichte, Art History, Games, Spiele">
+    <!-- Bild, Titel und Beschreibung bei Verlinkung -->
+    <meta name="description"
+        content="Private project designed for short breaks with playful entertainment. Made by Katharina Hefele." />
+    <!-- MS Tile - for Microsoft apps-->
+    <meta name="msapplication-TileImage" content="https://khefele.github.io/ArtHistorian/images/artHistorian.png">
+
+
+
 </head>
 
 <body>
@@ -24,16 +60,16 @@
     </div>
 
 
-    <img src="icons/info.png" width="40px" class="getBigger" style="position:absolute; right: 5%; top: 5%;">
+    <img src="icons/info.png" id="iconQuellenangabe" width="40px" class="getBigger" style="position:absolute; right: 5%; top: 5%;">
+    <img src="icons/email.png" id="iconEmailFormular" width="40px" class="getBigger" style="position:absolute; right: 9%; top: 5%;">
 
 
     <div id="gamesContainer">
 
         <!-- Games -->
         <div class="gameLink getBigger">
-            <a href="games/masterThief.html" >
-                <video class="myvideos" width="100%" muted="muted" loop preload="none"
-                    poster="images/thiefGame.jpg">
+            <a href="games/masterThief.html">
+                <video class="myvideos" width="100%" muted="muted" loop preload="none" poster="images/thiefGame.jpg">
                     <source src="videos/thiefLord.mp4" type="video/mp4">
                     <source src="movie.ogg" type="video/ogg">
                     Your browser does not support the video tag.
@@ -43,9 +79,8 @@
         </div>
 
         <div class="gameLink getBigger">
-            <a href="games/saveMona.html" >
-                <video class="myvideos" width="100%" muted="muted" loop preload="none"
-                    poster="images/thiefGame.jpg">
+            <a href="games/saveMona.html">
+                <video class="myvideos" width="100%" muted="muted" loop preload="none" poster="images/thiefGame.jpg">
                     <source src="videos/thief_game.mp4" type="video/mp4">
                     <source src="movie.ogg" type="video/ogg">
                     Your browser does not support the video tag.
@@ -55,8 +90,7 @@
         </div>
         <div class="gameLink getBigger">
             <a href="games/masterThief.html">
-                <video class="myvideos" width="100%" muted="muted" loop preload="none"
-                    poster="images/thiefGame.jpg">
+                <video class="myvideos" width="100%" muted="muted" loop preload="none" poster="images/thiefGame.jpg">
                     <source src="videos/thief_game.mp4" type="video/mp4">
                     <source src="movie.ogg" type="video/ogg">
                     Your browser does not support the video tag.
@@ -76,34 +110,103 @@
 
     </div>
 
-    <div id="infoBackground">
-        <div id="info">
-            <h1>Quellen:</h1>
-            <details>
-                <summary>Master Thief</summary>
-                <p>
-                    Play-Zeichen: <div>Icon erstellt von <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/de/" title="Flaticon">www.flaticon.com</a></div>
-                    Stop-Zeichen: <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                    Falling-Queen: <div>Icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                    Trophy: <div>Icon made by <a href="https://www.flaticon.com/authors/aficons-studio" title="Aficons studio">Aficons studio</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                    Stopwatch: <div>Icons made by <a href="https://www.flaticon.com/authors/fjstudio" title="fjstudio">fjstudio</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                    Star/Point: <div>Icons made by <a href="https://www.flaticon.com/authors/inkubators" title="inkubators">inkubators</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                    Alarm: <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                    WASD: <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                    Arrows: <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> 
-                </p>
-                <summary>Save Mona</summary>
-                <p>
-                    Crosshairs: <div>Icons erstellt von <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/de/" title="Flaticon">www.flaticon.com</a></div>
-                    Heart: <div>Icons erstellt von <a href="https://www.flaticon.com/de/autoren/kmg-design" title="kmg design">kmg design</a> from <a href="https://www.flaticon.com/de/" title="Flaticon">www.flaticon.com</a></div>
-                    Fly: <div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>: <div>Icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                    Smoker: <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                    Painting / Mona Lisa: <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                    Water gun: <div>Icons erstellt von <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/de/" title="Flaticon">www.flaticon.com</a></div>
-                    Bucket: <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                    Net: <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-                </p>
-            </details>
+
+    <div class="modalBackground" id="quellenangabe">
+        <div class="modal">
+            <div class="modalText">
+                <h1>Quellenangaben</h1>
+                <details>
+                    <summary>Master Thief</summary>
+                    <p>
+                        Play-Zeichen: Icon erstellt von <a href="https://www.freepik.com" title="Freepik">Freepik</a>
+                        from <a href="https://www.flaticon.com/de/" title="Flaticon">www.flaticon.com</a><br>
+                        Stop-Zeichen: Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from
+                        <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a><br>
+                        Falling-Queen: Icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from
+                        <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a><br>
+                        Trophy: Icon made by <a href="https://www.flaticon.com/authors/aficons-studio"
+                            title="Aficons studio">Aficons studio</a> from <a href="https://www.flaticon.com/"
+                            title="Flaticon">www.flaticon.com</a><br>
+                        Stopwatch: Icons made by <a href="https://www.flaticon.com/authors/fjstudio"
+                            title="fjstudio">fjstudio</a> from <a href="https://www.flaticon.com/"
+                            title="Flaticon">www.flaticon.com</a><br>
+                        Star/Point: Icons made by <a href="https://www.flaticon.com/authors/inkubators"
+                            title="inkubators">inkubators</a> from <a href="https://www.flaticon.com/"
+                            title="Flaticon">www.flaticon.com</a><br>
+                        Alarm: Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a
+                            href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a><br>
+                        WASD: Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a
+                            href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a><br>
+                        Arrows: Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a
+                            href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                        <br>
+                        <br>
+                    </p>
+                </details>
+                <details>
+                    <summary>Save Mona</summary>
+                    <p>
+                        Crosshair: Icons erstellt von <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/de/" title="Flaticon">www.flaticon.com</a><br>
+                        Heart: Icons erstellt von <a href="https://www.flaticon.com/de/autoren/kmg-design"
+                            title="kmg design">kmg design</a> from <a href="https://www.flaticon.com/de/"
+                            title="Flaticon">www.flaticon.com</a><br>
+                        Fly: Icons made by <a href="https://www.flaticon.com/authors/eucalyp"
+                            title="Eucalyp">Eucalyp</a>
+                        from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a><br>
+                        Smoker: Icons made by <a href="https://www.flaticon.com/authors/roundicons"
+                            title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/"
+                            title="Flaticon">www.flaticon.com</a><br>
+                        Painting / Mona Lisa: Icons made by <a href="https://www.freepik.com"
+                            title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a><br>
+                        Water gun: Icons erstellt von <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/de/" title="Flaticon">www.flaticon.com</a><br>
+                        Bucket: Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a
+                            href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a><br>
+                        Net: Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a
+                            href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a><br>
+                        Photographer: Icons made by <a href="https://www.flaticon.com/authors/nes-kanyanee"
+                            title="Nes_Kanyanee">Nes_Kanyanee</a> from <a href="https://www.flaticon.com/"
+                            title="Flaticon">www.flaticon.com</a><br>
+                        Air conditioning: Icons erstellt von <a href="https://www.freepik.com"
+                            title="Freepik">Freepik</a>
+                        from <a href="https://www.flaticon.com/de/" title="Flaticon">www.flaticon.com</a><br>
+                        Tools: Icons erstellt von <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a
+                            href="https://www.flaticon.com/de/" title="Flaticon">www.flaticon.com</a><br>
+                        <br>
+                        <br>
+                    </p>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalBackground" id="emailFormular">
+        <div class="modal">
+            <div class="modalText">
+                <div class="container">
+                    <form action="mailto:katharina.hefele@gmx.de" method="POST" enctype="multipart/form-data" name="EmailForm">
+    
+                        <label for="email">Your Email</label><br>
+                        <input type="text" id="email" name="emailname" placeholder="max.mustermann@gmx.de">
+                        <br>
+                        <br>
+                        <label for="topic">Topic</label><br>
+                        <select id="topic" name="topic">
+                            <option value="bugreport">Bugreport</option>
+                            <option value="suggestions">Suggestions</option>
+                            <option value="sthElse">Sth else</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for="message">Message</label><br>
+                        <textarea id="message" name="message" placeholder="Write something.."
+                            style="height:200px"></textarea>
+                        <br>
+                        <br>
+                        <input type="submit" value="Submit">
+    
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -34,6 +34,26 @@ hr {
 	background-color:var(--color3);
 }
 
+
+/* width */
+body::-webkit-scrollbar {
+	width: 20px;
+}
+  
+/* Track */
+body::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+	border-radius: 10px;
+}
+  
+/* Handle */
+body::-webkit-scrollbar-thumb {
+	background: red;
+	border-radius: 10px;
+}
+
+
+
 #leinwand {
     background-color: whitesmoke;
 	border: 10px solid white;
