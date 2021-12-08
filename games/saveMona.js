@@ -5,8 +5,21 @@ const taktungszeit = 30;
 var mouseOverBox = -1;
 var mouseOverFly = false; 
 var hearts = 2;
+var temperature = 20;
+var humidity = 50;
 
+function zufallszahl(min, max){
+    return (Math.random() * (max - min)) + min;
+}
 
+function clamp(number, min, max){
+    if (number < min){
+        number = min;
+    } else if (number > max) {
+        number = max;
+    }
+    return number;
+}
 class Fly {
     constructor(start, end, movetime, flyimage, size) {
         this.end = end;
@@ -32,6 +45,17 @@ class Fly {
         } else {
             this.position[0] = this.end[0];
             this.position[1] = this.end[1];
+
+            this.lifetime = 0;
+            this.movetime = 10000;
+
+            this.end[0] = clamp(zufallszahl(-40,40)+this.position[0],220,360);
+            this.end[1] = clamp(zufallszahl(-40,40)+this.position[1],120,260);
+            this.xSchrittlänge = (this.end[0]-this.position[0])*(taktungszeit/this.movetime);
+            this.ySchrittlänge = (this.end[1]-this.position[1])*(taktungszeit/this.movetime);
+
+            this.position[0] += this.xSchrittlänge;
+            this.position[1] += this.ySchrittlänge;  
         }
         context.drawImage(this.flyimage,this.position[0],this.position[1],this.size,this.size); 
         
@@ -68,9 +92,27 @@ class Smoker {
             this.positionX += this.xSchrittlänge;   
         } else {
             this.positionX = this.endX;
+
+            this.lifetime = 0;
+            this.movetime = 5000;
+
+            this.endX = clamp(zufallszahl(-100,100)+this.positionX,150,280);
+            this.xSchrittlänge = (this.endX-this.positionX)*(taktungszeit/this.movetime);
+
+            this.positionX += this.xSchrittlänge;
         }
-        context.drawImage(this.smokerimage,this.positionX,300,150,150); 
+        context.drawImage(this.smokerimage,this.positionX,300,150,175); 
         
+    }
+
+    hoverWithWatergun(currentDragObj, wantedDragObj, mouseX, mouseY){
+        // console.log(currentDragObj);
+        // console.log(wantedDragObj)
+        if (currentDragObj == wantedDragObj && mouseX >= this.positionX && mouseX <= this.positionX+150){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
@@ -121,13 +163,22 @@ $(document).ready(function() {
     flyImgRed.src = "../images/flyRed.png";
     var flyArray = [];
 
-    var smokerimg = new Image();
-    smokerimg.src="../images/smoker.png";
-    var smoker1 = new Smoker(0, 200, smokerimg);
+    var smokerImg = new Image();
+    smokerImg.src="../images/smoker.png";
+    var smokerImgRed = new Image();
+    smokerImgRed.src="../images/smokerRed.png";
+    var noSmokerImg = new Image();
+    noSmokerImg.src="../images/noSmoker.png";
+    var smoker1 = new Smoker(0, 200, smokerImg);
 
     var photographerImg = new Image();
     photographerImg.src="../images/photographer.png";
     var photographer1 = new Photographer(800, 400, photographerImg);
+
+    var carpetImg = new Image();
+    carpetImg.src="../images/carpet.png";
+    var barrierImg = new Image();
+    barrierImg.src = "../images/barriere.png";
 
     var netImg = new Image();
     netImg.src="../images/net.png";
@@ -147,9 +198,7 @@ $(document).ready(function() {
     toolsImg.src="../images/werkzeug.png";
 
 
-    function zufallszahl(min, max){
-        return (Math.random() * (max - min)) + min;
-    }
+
 
     function imgWithOutline(img, posX, posY, size){
         context.beginPath();
@@ -176,7 +225,7 @@ $(document).ready(function() {
 
     };
 
-    var mousePos; 
+    var mousePos = { x:0, y:0 }; 
     canvas.addEventListener('mousemove', function(evt) {
 
         //check if mouse in Box
@@ -223,6 +272,10 @@ $(document).ready(function() {
                 flyArray.splice(x, 1);
             }
         }
+        if (smoker1.hoverWithWatergun(dragObject, crossHairImg, mousePos.x, mousePos.y)){
+            smoker1.smokerimage = noSmokerImg;
+            smoker1.positionX = -1000;
+        }
         dragObject = null;
         
         
@@ -234,10 +287,23 @@ $(document).ready(function() {
     function taktung() {
         count++;
         context.clearRect(0, 0, leinwandwidth, leinwandheight);
+
+        context.beginPath();
+        context.moveTo(0, 460);
+        context.lineTo(600, 460);
+        context.strokeStyle = "#e4e4e4";
+        context.lineWidth = "150";
+        context.stroke();
+
         context.drawImage(monaImg,200,100,200,200);
         context.drawImage(airConditioning,10,40,100,100); 
+        context.drawImage(carpetImg,100,380,400, 122); 
+        context.drawImage(barrierImg,140,270,160, 160); 
+        context.drawImage(barrierImg,300,270,160, 160); 
 
-        context.fillText("20° 50%", 50, 84);
+        
+
+        context.fillText(temperature + "° " + humidity + "%", 50, 84);
 
         var heartsx = 10;
         for (var i = 0; i<=hearts; i++){
@@ -250,20 +316,22 @@ $(document).ready(function() {
         imgWithOutline(bucketImg, 530, 150, 60);
         imgWithOutline(toolsImg, 530, 220, 60);
 
+        console.log(dragObject)
+        if (smoker1.hoverWithWatergun(dragObject, crossHairImg, mousePos.x, mousePos.y)){
+            smoker1.smokerimage = smokerImgRed;
+        }
+
         //Flies
-        for (var x = 0; x < flyArray.length; x++){
-            flyArray[x].update();
-            if (flyArray[x].hoverWithNet(dragObject, netImg, mousePos.x, mousePos.y)){
-                flyArray[x].flyimage = flyImgRed;
-                // flyArray[x].size = 35;
-                //flyArray[x].position[0] -= 20;
+        for (var f = 0; f < flyArray.length; f++){
+            flyArray[f].update();
+            if (flyArray[f].hoverWithNet(dragObject, netImg, mousePos.x, mousePos.y)){
+                flyArray[f].flyimage = flyImgRed;
             } else {
-                flyArray[x].flyimage = flyImg;
-                // flyArray[x].size = 20;
+                flyArray[f].flyimage = flyImg;
             }
         }
         if (count%200==0){
-            var fliege3 = new Fly([zufallszahl(0, leinwandwidth),zufallszahl(0, leinwandheight)], [zufallszahl(120,260), zufallszahl(120,260)], zufallszahl(1000,4000), flyImg, 35);
+            var fliege3 = new Fly([zufallszahl(0, leinwandwidth),zufallszahl(0, leinwandheight)], [zufallszahl(220,360), zufallszahl(120,260)], zufallszahl(1000,4000), flyImg, 35);
             flyArray.push(fliege3);  
         }
 
