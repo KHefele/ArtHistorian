@@ -24,8 +24,6 @@ var arrowright = false;
 
 var play = true;
 
-
-
 $(document).ready(function() {
     takt = window.setInterval(taktung, 100);
 
@@ -78,6 +76,7 @@ $(document).ready(function() {
 			}
             zielx = Math.floor(Math.random()*28)*20+20;
             siegpunkte++;
+            $("#gotIt").trigger("play");
             $("#punktestand").html("&nbsp; Score: " + siegpunkte)
 		}
 	}
@@ -86,14 +85,19 @@ $(document).ready(function() {
     function spielende() {
 		clearInterval(takt);
         $('#endpunktestand').text('Score: ' + siegpunkte);
-        $('#spielendeanzeige:nth-child(0)').css( "background-color: green" );
+        // $('#spielendeanzeige:nth-child(0)').css( "background-color: green" );
         var sieg = (siegpunkte >= 5); 
         if (sieg){
-            
-            
+            $("#spielendeanzeige img").eq(0).attr("src", "../images/trophy.png");
+            $("#spielendeanzeige h1").eq(0).text("Mission accomplished");
+            $('#endMessage').text("You did it! You're the Master Thief.");
+            $("#victory").trigger("play");
+        } else {
+            $("#fail").trigger("play");
         }
         $('#spielendeanzeige').show();
 	}
+
 
     //Gegner
     function setzeGegner() {
@@ -117,6 +121,7 @@ $(document).ready(function() {
     function kollisionGegner() {
         clearInterval(takt);
         $('#gameover').show();
+        $("#prison").trigger("play");
     }
     function kollisionspruefungWand() {
         console.log("x: " + x);
@@ -191,9 +196,12 @@ $(document).ready(function() {
     });
 
 
+    $('audio:first').prop("volume", 0.1);
+    $('#gotIt').prop("volume", 1);
 
-    $("#stop").click(function() {
-        if (play){
+
+    $("#stop").click(function () {
+        if (play) {
             clearInterval(takt);
             $("#stop").attr('src', "../icons/wiedergabetaste.png");
             $("#stop").css("background-color", "var(--color1)");
@@ -204,7 +212,9 @@ $(document).ready(function() {
             $("#stop").css("background-color", "");
             play = true;
         }
-        
+
     });
+
+
     
 });

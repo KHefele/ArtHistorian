@@ -6,6 +6,7 @@
     <title>Master Thief</title>
     <meta http-equiv="cache-control" content="no-cache">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="script.js"></script>
     <script src="masterThief.js"></script>
     <link href="style.css" rel="stylesheet">
     <!-- Favicon -->
@@ -13,6 +14,28 @@
 </head>
 
 <body>
+
+    <audio autoplay loop >
+        <source src="../audio/musicfox_the_last_race_in_hell.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="prison" volume="2">
+        <source src="../audio/528259__brianbaltar__prison-door-closing.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="gotIt">
+        <source src="../audio/609335__kenneth-cooney__levelup.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="victory">
+        <source src="../audio/60443__jobro__tada1.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="fail">
+        <source src="../audio/76376__deleted-user-877451__game-over.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+
 
     <div id="auftrag">
         <h1>MISSION</h1>
@@ -66,8 +89,10 @@
             <img src="../icons/stopwatch.png" width="30px" ><div style="display: inline-block;font-family: monospace;" id="spielzeit">&nbsp; Remaining time: 0</div>
         </div>
 
-        <div id="spielstop">
-            <img id="stop" src="../icons/pause-button.png" width="25px">
+        <div id="buttons">
+            <img id="stop" class="gameButton" style="left:0%" src="../icons/pause-button.png" width="25px">
+            <a href="javascript:location.reload()"><img id="again" class="gameButton" style="left:50%" src="../icons/update-arrow.png" width="25px"></a>
+            <img id="audio" class="gameButton" style="left:100%" src="../icons/lautsprechergefulltes-audio-tool.png" width="25px">
         </div>
         
         <div id="spielendeanzeige">
@@ -75,7 +100,7 @@
             <h1>Time expired</h1>
             <img src="../images/queen.png" width="25%" style="margin: 0% 10%; float:left">
             <p id="endpunktestand">Score: </p>
-            <p>Mission failed. Unfortunately, you did not reach the number of 5 artworks. Why don't you try again? </p>
+            <p id="endMessage">Mission failed. Unfortunately, you did not reach the number of 5 artworks. Why don't you try again? </p>
             <br>
             <br>
             <a href="javascript:location.reload()"><button>Restart</button></a>

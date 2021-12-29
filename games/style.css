@@ -126,7 +126,7 @@ button:hover{
 	position: absolute;
 	color:white;
 	right: 70%;
-	padding: 0% 10%;
+	padding: 0% 8%;
 	top: 20%;
 }
 summary{
@@ -143,21 +143,23 @@ a{
 
 
 
-#spielstop{
+#buttons{
 	position: absolute;
-	float: right;
 	padding: 3%;
-	right: 0%;
+	top:8%;
+	right: 10%;
 	cursor: pointer;
+	width: 15%;
 }
 /* #start {
 	background-color: var(--color1);
 } */
-#stop {
+.gameButton {
+	position: absolute;
 	padding: 10%;
 	border-radius: 5%;
-	border:1px solid #fff1cca1;;
+	border:1px solid #fff1cca1;
 }
-#stop:hover {
+.gameButton:hover {
 	background-color: var(--color1);
 }

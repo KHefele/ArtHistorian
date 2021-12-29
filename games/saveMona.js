@@ -33,6 +33,8 @@ class Fly {
 
         this.position = start;
         this.lifetime = 0;
+
+        this.angle = 0;
     }
 
     update(){
@@ -57,7 +59,8 @@ class Fly {
             this.position[0] += this.xSchrittlänge;
             this.position[1] += this.ySchrittlänge;  
         }
-        context.drawImage(this.flyimage,this.position[0],this.position[1],this.size,this.size); 
+        this.angle = Math.atan2(this.ySchrittlänge, this.xSchrittlänge);
+        drawRotatedImage(this.flyimage, this.position[0], this.position[1],this.size,this.size, this.angle+Math.PI/2);
         
     }
 
@@ -144,6 +147,32 @@ class Photographer {
     }
 }
 
+function imgWithOutline(img, posX, posY, size){
+    context.beginPath();
+    context.lineWidth = "6";
+    context.strokeStyle = "#FFCE4B";
+    context.rect(posX, posY, size, size);
+    context.stroke();
+
+    context.drawImage(img, posX+5, posY+5, size-10, size-10);
+}
+function drawLine(xStart, xEnd, yStart, yEnd, width, color){
+    context.beginPath();
+    context.moveTo(xStart, yStart);
+    context.lineTo(xEnd, yEnd);
+    context.strokeStyle = color;
+    context.lineWidth = width;
+    context.stroke();
+}
+function drawRotatedImage(image, x, y, xWidth, yWidth, angle){
+    context.translate(x+xWidth/2, y+yWidth/2);
+    context.rotate(angle);
+    context.translate(-x-xWidth/2,-y-yWidth/2);
+    context.drawImage(image,x,y,xWidth,yWidth);
+    context.setTransform(1,0,0,1,0,0);
+}
+
+
 $(document).ready(function() {
 
     //Spielbrett
@@ -200,15 +229,7 @@ $(document).ready(function() {
 
 
 
-    function imgWithOutline(img, posX, posY, size){
-        context.beginPath();
-        context.lineWidth = "6";
-        context.strokeStyle = "#FFCE4B";
-        context.rect(posX, posY, size, size);
-        context.stroke();
 
-        context.drawImage(img, posX+5, posY+5, size-10, size-10);
-    }
 
 
 
@@ -232,15 +253,15 @@ $(document).ready(function() {
         mousePos = getMousePos(evt);
         // console.log(mousePos)
         if (mousePos.x >= 530-3 && mousePos.x <= 590+3 && mousePos.y >= 10-3 && mousePos.y <= 70+3){ //3 wg. Rahmendicke
-            console.log("in der Box!");
+            //console.log("in der Box!");
 
             //CURSOR ÄNDERN
             mouseOverBox = 0;
         } else if (mousePos.x >= 530-3 && mousePos.x <= 590+3 && mousePos.y >= 80-3 && mousePos.y <= 140+3){
-            console.log("in der Box 1!")
+            //console.log("in der Box 1!")
             mouseOverBox = 1;
         } else if (mousePos.x >= 530-3 && mousePos.x <= 590+3 && mousePos.y >= 150-3 && mousePos.y <= 210+3){
-            console.log("in der Box 2!")
+            //  console.log("in der Box 2!")
             mouseOverBox = 2;
         } else {
             mouseOverBox = -1;
@@ -254,8 +275,7 @@ $(document).ready(function() {
     document.onmousedown = function (event) {
         if (mouseOverBox == 0) {
             dragObject = netImg;
-            console.log("auf Netz geklickt");
-            //if (dragParent != null) { dragParent.style.transition = "none"; }
+            //console.log("auf Netz geklickt");
         } else if (mouseOverBox == 1) {
             dragObject = crossHairImg;
         } else if (mouseOverBox == 2) {
@@ -270,10 +290,12 @@ $(document).ready(function() {
             
             if (flyArray[x].hoverWithNet(dragObject, netImg, mousePos.x, mousePos.y)){
                 flyArray.splice(x, 1);
+                $("#swich").trigger("play");
             }
         }
         if (smoker1.hoverWithWatergun(dragObject, crossHairImg, mousePos.x, mousePos.y)){
             smoker1.smokerimage = noSmokerImg;
+            $("#waterdrop").trigger("play");
             smoker1.positionX = -1000;
         }
         dragObject = null;
@@ -281,6 +303,7 @@ $(document).ready(function() {
         
     }
 
+    $("#coughing").trigger("play");
     var count = 0;
     //Taktung
     takt = window.setInterval(taktung, taktungszeit);
@@ -288,22 +311,30 @@ $(document).ready(function() {
         count++;
         context.clearRect(0, 0, leinwandwidth, leinwandheight);
 
-        context.beginPath();
-        context.moveTo(0, 460);
-        context.lineTo(600, 460);
-        context.strokeStyle = "#e4e4e4";
-        context.lineWidth = "150";
-        context.stroke();
+        
+        drawLine(0, 600, 460, 460, "150","#e4e4e4"); //Boden
+        
 
+
+        
         context.drawImage(monaImg,200,100,200,200);
         context.drawImage(airConditioning,10,40,100,100); 
         context.drawImage(carpetImg,100,380,400, 122); 
         context.drawImage(barrierImg,140,270,160, 160); 
         context.drawImage(barrierImg,300,270,160, 160); 
 
+        if (temperature == 20){
+            drawLine(40, 95, 80, 80, "10", "#56A6E888"); //Air conditioning
+        } else {
+            drawLine(40, 95, 80, 80, "10", "#ff5448af");
+        }
+        
         
 
+        
+        context.fillStyle = "white";
         context.fillText(temperature + "° " + humidity + "%", 50, 84);
+        
 
         var heartsx = 10;
         for (var i = 0; i<=hearts; i++){
@@ -316,7 +347,6 @@ $(document).ready(function() {
         imgWithOutline(bucketImg, 530, 150, 60);
         imgWithOutline(toolsImg, 530, 220, 60);
 
-        console.log(dragObject)
         if (smoker1.hoverWithWatergun(dragObject, crossHairImg, mousePos.x, mousePos.y)){
             smoker1.smokerimage = smokerImgRed;
         }
@@ -333,7 +363,10 @@ $(document).ready(function() {
         if (count%200==0){
             var fliege3 = new Fly([zufallszahl(0, leinwandwidth),zufallszahl(0, leinwandheight)], [zufallszahl(220,360), zufallszahl(120,260)], zufallszahl(1000,4000), flyImg, 35);
             flyArray.push(fliege3);  
+            $("#flyingFly").trigger("play");
         }
+
+        console.log(flyArray[0].angleDegrees)
 
         smoker1.update();
         photographer1.update();
@@ -344,6 +377,7 @@ $(document).ready(function() {
           
     }
 
+    $('audio:first').prop("volume", 0.1);
 
 
 
